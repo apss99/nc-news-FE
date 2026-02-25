@@ -1,35 +1,42 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import "./App.css";
+import Header from "./components/Header/Header";
+import Body from "./components/Body/Body";
+import Navigation from "./components/Navigation/Navigation";
+import { Route, Routes } from "react-router";
+import ArticlesList from "./components/Body/ArticlesList";
+import TopicsList from "./components/Body/TopicsList";
+import UsersList from "./components/Body/UsersList";
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const [endpoint, setEndpoint] = useState("");
+  const [fetchArticlesData, setFetchArticlesData] = useState("");
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Header
+        fetchArticlesData={fetchArticlesData}
+        setFetchArticlesData={setFetchArticlesData}
+      />
+      <Routes>
+        <Route
+          path="/articles"
+          element={
+            <ArticlesList
+              fetchArticlesData={fetchArticlesData}
+              setFetchArticlesData={setFetchArticlesData}
+            />
+          }
+        />
+        <Route path="/topics" element={<TopicsList />} />
+        <Route path="/users" element={<UsersList />} />
+      </Routes>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
+
+/*<Route
+          path={["/articles", "/topics", "/users"]}
+          element={<Header fetchData={fetchData} setFetchData={setFetchData} />}
+        />*/
