@@ -7,12 +7,13 @@ import { Route, Routes } from "react-router";
 import ArticlesList from "./components/Body/ArticlesList";
 import TopicsList from "./components/Body/TopicsList";
 import UsersList from "./components/Body/UsersList";
+import SingleArticle from "./components/Body/SingleArticle";
 
 function App() {
-  const [endpoint, setEndpoint] = useState("");
   const [fetchArticlesData, setFetchArticlesData] = useState([]);
   const [fetchTopicsData, setFetchTopicsData] = useState([]);
   const [fetchUsersData, setFetchUsersData] = useState([]);
+  const [singleArticleData, setSingleArticleData] = useState([]);
   return (
     <>
       <Header
@@ -26,6 +27,15 @@ function App() {
             <ArticlesList
               fetchArticlesData={fetchArticlesData}
               setFetchArticlesData={setFetchArticlesData}
+            />
+          }
+        />
+        <Route
+          path="/articles/:article_id"
+          element={
+            <SingleArticle
+              singleArticleData={singleArticleData}
+              setSingleArticleData={setSingleArticleData}
             />
           }
         />

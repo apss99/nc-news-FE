@@ -1,26 +1,24 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import ArticlesCard from "./ArticlesCard";
-import ArticlesEndpointButton from "../Header/ArticlesEndpointButton";
 import axios from "axios";
 
 function ArticlesList(props) {
-  const setFetchArticlesData = props.setFetchArticlesData;
-  const fetchArticlesData = props.fetchArticlesData;
+  const setArticlesData = props.setFetchArticlesData;
+  const articlesData = props.fetchArticlesData;
   useEffect(() => {
     async function fetchArticles() {
       const response = await axios.get(
         "https://better-news.onrender.com/api/articles",
       );
       const articlesObject = response.data.articles;
-      console.log(articlesObject);
-      setFetchArticlesData(articlesObject);
+      setArticlesData(articlesObject);
     }
     fetchArticles();
   }, []);
   return (
     <div>
       <ul>
-        {fetchArticlesData.map((article) => {
+        {articlesData.map((article) => {
           return (
             <li key={article.article_id}>
               <ArticlesCard key={article.article_id} {...article} />
