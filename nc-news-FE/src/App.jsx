@@ -10,7 +10,9 @@ import UsersList from "./components/Body/UsersList";
 
 function App() {
   const [endpoint, setEndpoint] = useState("");
-  const [fetchArticlesData, setFetchArticlesData] = useState("");
+  const [fetchArticlesData, setFetchArticlesData] = useState([]);
+  const [fetchTopicsData, setFetchTopicsData] = useState([]);
+  const [fetchUsersData, setFetchUsersData] = useState([]);
   return (
     <>
       <Header
@@ -27,8 +29,24 @@ function App() {
             />
           }
         />
-        <Route path="/topics" element={<TopicsList />} />
-        <Route path="/users" element={<UsersList />} />
+        <Route
+          path="/topics"
+          element={
+            <TopicsList
+              fetchTopicsData={fetchTopicsData}
+              setFetchTopicsData={setFetchTopicsData}
+            />
+          }
+        />
+        <Route
+          path="/users"
+          element={
+            <UsersList
+              fetchUsersData={fetchUsersData}
+              setFetchUsersData={setFetchUsersData}
+            />
+          }
+        />
       </Routes>
     </>
   );

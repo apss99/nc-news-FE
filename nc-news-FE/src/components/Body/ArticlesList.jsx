@@ -11,14 +11,23 @@ function ArticlesList(props) {
       const response = await axios.get(
         "https://better-news.onrender.com/api/articles",
       );
-      console.log(response.request.response);
-      setFetchArticlesData(response.request.response);
+      const articlesObject = response.data.articles;
+      console.log(articlesObject);
+      setFetchArticlesData(articlesObject);
     }
     fetchArticles();
-  }, [fetchArticlesData]);
+  }, []);
   return (
     <div>
-      <p> {fetchArticlesData} </p>
+      <ul>
+        {fetchArticlesData.map((article) => {
+          return (
+            <li key={article.article_id}>
+              <ArticlesCard key={article.article_id} {...article} />
+            </li>
+          );
+        })}
+      </ul>
     </div>
   );
 }

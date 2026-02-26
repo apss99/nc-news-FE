@@ -15,10 +15,14 @@ function Dropdown(props) {
       {open ? (
         <ul className="menu">
           <li className="menu-option">
-            <button className="users-endpoint-button">Users</button>
+            <Link to="/users">
+              <button className="users-endpoint-button">Users</button>
+            </Link>
           </li>
           <li className="menu-option">
-            <button className="topics-endpoint-button">Topics</button>
+            <Link to="/topics">
+              <button className="topics-endpoint-button">Topics</button>
+            </Link>
           </li>
           <li className="menu-option">
             <Link to="/articles">
