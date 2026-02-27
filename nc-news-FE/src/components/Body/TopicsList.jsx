@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import TopicsCard from "./TopicsCard";
-import ArticlesEndpointButton from "../Header/ArticlesEndpointButton";
 import axios from "axios";
 
 function TopicsList(props) {

@@ -8,7 +8,7 @@ const LogInPage = () => {
     username: "",
     password: "",
   });
-  async function handleSubmit(event) {
+  async function AttemptLogin(event) {
     event.preventDefault();
     const response = await axios.post(
       "https://better-news.onrender.com/api/login",
@@ -17,12 +17,10 @@ const LogInPage = () => {
         password: loginAttempt.password || "",
       },
     );
-    console.dir(response);
     setLoggedInUser(response.data);
-    console.log(response.data);
   }
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={AttemptLogin}>
       <input
         placeholder="username"
         className="login-username-textbox"
@@ -32,7 +30,7 @@ const LogInPage = () => {
         }
       />
       <input
-        placeholder="password (for default users this is 'password')"
+        placeholder="password (default is 'password')"
         className="login-password-textbox"
         value={loginAttempt.password}
         onChange={(event) =>

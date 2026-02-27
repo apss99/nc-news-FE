@@ -1,8 +1,6 @@
 import { useState } from "react";
 import "./App.css";
 import Header from "./components/Header/Header";
-import Body from "./components/Body/Body";
-import Navigation from "./components/Navigation/Navigation";
 import { Route, Routes } from "react-router";
 import ArticlesList from "./components/Body/Articles/ArticlesList";
 import TopicsList from "./components/Body/TopicsList";
@@ -20,10 +18,7 @@ function App() {
   return (
     <UserProvider>
       <>
-        <Header
-          fetchArticlesData={fetchArticlesData}
-          setFetchArticlesData={setFetchArticlesData}
-        />
+        <Header />
         <Routes>
           <Route
             path="/articles"

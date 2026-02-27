@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import UsersCard from "./UsersCard";
-import ArticlesEndpointButton from "../Header/ArticlesEndpointButton";
 import axios from "axios";
 
 function UsersList(props) {
