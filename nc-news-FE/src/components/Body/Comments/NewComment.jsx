@@ -1,10 +1,10 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import NewComment from "./NewComment";
+import NewComment from "./CreateCommentBox";
 import CommentCard from "./CommentCard";
 
-function CreateCommentBox(props) {
+function PostComment(props) {
   const [commentsData, setCommentsData] = useState([]);
   const { article_id } = useParams();
   const showCommentBox = props.showCommentBox;
@@ -18,21 +18,13 @@ function CreateCommentBox(props) {
       const commentsObject = response.data.comments;
       setCommentsData(commentsObject);
     }
-    getComments();
+    postComment();
   }, []);
   return (
-    <div>
-      <ul>
-        {commentsData.map((comment) => {
-          return (
-            <li key={comment.comment_id}>
-              <CommentCard key={comment.comment_id} {...comment} />
-            </li>
-          );
-        })}
-      </ul>
+    <div key={commentsObject.comment_id}>
+      <NewComment key={commentsObject.comment_id} {...comment} />
     </div>
   );
 }
 
-export default ViewComments;
+export default PostComment;

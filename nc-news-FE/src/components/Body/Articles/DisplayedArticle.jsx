@@ -1,7 +1,7 @@
 import { Link } from "react-router";
 import { useState } from "react";
 import VotesSection from "./VotesSection";
-import CommentSection from "./CommentSection";
+import CommentSection from "../Comments/CommentSection";
 
 function DisplayedArticle({
   title,

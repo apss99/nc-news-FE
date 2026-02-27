@@ -4,10 +4,10 @@ import Header from "./components/Header/Header";
 import Body from "./components/Body/Body";
 import Navigation from "./components/Navigation/Navigation";
 import { Route, Routes } from "react-router";
-import ArticlesList from "./components/Body/ArticlesList";
+import ArticlesList from "./components/Body/Articles/ArticlesList";
 import TopicsList from "./components/Body/TopicsList";
 import UsersList from "./components/Body/UsersList";
-import SingleArticle from "./components/Body/SingleArticle";
+import SingleArticle from "./components/Body//Articles/SingleArticle";
 
 function App() {
   const [fetchArticlesData, setFetchArticlesData] = useState([]);

@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import NewComment from "./NewComment";
 import CommentCard from "./CommentCard";
 import ViewComments from "./ViewComments";
+import CreateCommentBox from "./CreateCommentBox";
 
 function CommentSection({ comment_count }) {
   const [showComments, setShowComments] = useState(false);
