@@ -1,7 +1,7 @@
-import axios from "axios";
+/*import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import NewComment from "./CreateCommentBox";
+import newComment from "./newComment";
 import CommentCard from "./CommentCard";
 
 function PostComment(props) {
@@ -10,7 +10,7 @@ function PostComment(props) {
   const showCommentBox = props.showCommentBox;
   const setShowCommentBox = props.setShowCommentBox;
   useEffect(() => {
-    async function postComment() {
+    async function makeComment() {
       const response = await axios.post(
         `https://better-news.onrender.com/api/articles/${article_id}/comments`,
       );
@@ -18,7 +18,7 @@ function PostComment(props) {
       const commentsObject = response.data.comments;
       setCommentsData(commentsObject);
     }
-    postComment();
+    makeComment();
   }, []);
   return (
     <div key={commentsObject.comment_id}>
@@ -27,4 +27,4 @@ function PostComment(props) {
   );
 }
 
-export default PostComment;
+export default PostComment;*/

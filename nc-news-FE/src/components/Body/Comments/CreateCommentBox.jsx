@@ -1,15 +1,42 @@
 import Popup from "reactjs-popup";
 import { useState } from "react";
-import PostComment from "./NewComment"
+import axios from "axios";
 
-function CreateCommentBox() {
+//comment submitted as text can make NewComment just a normal function and that function should change the state of another component called SubmittedCommentMessagejsx
+
+function CreateCommentBox({ article_id }) {
+  const [newComment, setNewComment] = useState("");
+  const handleInput = (event) => {
+    setNewComment({ ...post, [event.target.name]: event.target.event });
+  };
+  async function handleSubmit(event) {
+    event.preventDefault();
+    const response = await axios.post(
+      `https://better-news.onrender.com/api/articles/${article_id}/comments`,
+      {
+        article_id: article_id,
+        username: "grumpy19",
+        body: newComment,
+      },
+    );
+    console.dir(response);
+    setNewComment("");
+  }
   return (
     <>
-    <button className="submit-comment" onClick={() => 
-      <PostComment />
-    }
+      <form onSubmit={handleSubmit}>
+        <textarea
+          placeholder="Inspire us with your words!"
+          className="new-comment-textbox"
+          value={newComment}
+          onChange={(event) => setNewComment(event.target.value)}
+        />
+        <button className="submit-comment" type="submit">
+          Submit
+        </button>
+      </form>
     </>
-  )
+  );
 }
 
 /*

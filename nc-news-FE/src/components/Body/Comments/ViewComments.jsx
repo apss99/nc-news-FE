@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import NewComment from "./NewComment";
 import CommentCard from "./CommentCard";
 
 function ViewComments() {

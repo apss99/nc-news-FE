@@ -1,12 +1,11 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import NewComment from "./NewComment";
 import CommentCard from "./CommentCard";
 import ViewComments from "./ViewComments";
 import CreateCommentBox from "./CreateCommentBox";
 
-function CommentSection({ comment_count }) {
+function CommentSection({ comment_count, article_id }) {
   const [showComments, setShowComments] = useState(false);
   const [showCommentBox, setShowCommentBox] = useState(false);
   const handleShowComments = () => {
@@ -21,7 +20,7 @@ function CommentSection({ comment_count }) {
       <button className="new-comment-button" onClick={handleNewComment}>
         {showCommentBox ? "Discard Comment" : "New Comment"}
       </button>
-      {showCommentBox && <CreateCommentBox />}
+      {showCommentBox && <CreateCommentBox article_id={article_id} />}
       <button className="see-comments-button" onClick={handleShowComments}>
         {showComments ? "Hide Comments" : "Show Comments"}
       </button>
