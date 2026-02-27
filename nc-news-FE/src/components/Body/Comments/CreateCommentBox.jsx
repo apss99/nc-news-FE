@@ -1,4 +1,3 @@
-import Popup from "reactjs-popup";
 import { useState } from "react";
 import axios from "axios";
 
@@ -6,9 +5,6 @@ import axios from "axios";
 
 function CreateCommentBox({ article_id }) {
   const [newComment, setNewComment] = useState("");
-  const handleInput = (event) => {
-    setNewComment({ ...post, [event.target.name]: event.target.event });
-  };
   async function handleSubmit(event) {
     event.preventDefault();
     const response = await axios.post(
@@ -38,29 +34,4 @@ function CreateCommentBox({ article_id }) {
     </>
   );
 }
-
-/*
-function CreateCommentBox() {
-  const [open, setOpen] = useState(false);
-  const closeModal = () => setOpen(false);
-  return (
-    <>
-      <button className="new-comment-button" onClick={() => setOpen(true)}>
-        New Comment
-      </button>
-      <Popup
-        className="new-comment-popup"
-        open={open}
-        closeOnDocumentClick
-        onClose={closeModal}
-        position="center-bottom"
-      >
-        <div>
-          New Comment: <input name="newComment" />
-        </div>
-      </Popup>
-    </>
-  );
-}
-*/
 export default CreateCommentBox;

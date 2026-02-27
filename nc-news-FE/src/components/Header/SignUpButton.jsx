@@ -1,0 +1,7 @@
+import { Link } from "react-router";
+
+function SignUpButton() {
+  return <Link to="/sign_up">Sign Up</Link>;
+}
+
+export default SignUpButton;
