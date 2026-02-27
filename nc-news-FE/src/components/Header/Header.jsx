@@ -1,4 +1,5 @@
 import Dropdown from "./Dropdown";
+import LoginButton from "./LoginButton";
 import SignUpButton from "./SignUpButton";
 
 function Header(props) {
@@ -9,6 +10,7 @@ function Header(props) {
       {" "}
       <h1> Better News </h1>
       <h6>Default Password: 'password'</h6>
+      <LoginButton />
       <SignUpButton />
       <Dropdown
         fetchArticlesData={fetchArticlesData}

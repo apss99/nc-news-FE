@@ -10,6 +10,7 @@ import UsersList from "./components/Body/UsersList";
 import SingleArticle from "./components/Body//Articles/SingleArticle";
 import { UserProvider } from "./Contexts/User";
 import SignUpPage from "./components/Body/SignUpPage";
+import LogInPage from "./components/Body/LogInPage";
 
 function App() {
   const [fetchArticlesData, setFetchArticlesData] = useState([]);
@@ -61,6 +62,7 @@ function App() {
             }
           />
           <Route path="sign_up" element={<SignUpPage />} />
+          <Route path="login" element={<LogInPage />} />
         </Routes>
       </>
     </UserProvider>

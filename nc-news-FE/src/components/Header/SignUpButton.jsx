@@ -1,6 +1,3 @@
-import { UserContext } from "../../Contexts/User";
-import { useContext } from "react";
-
 import { Link } from "react-router";
 
 function SignUpButton() {
