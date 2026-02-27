@@ -8,6 +8,7 @@ export const UserProvider = (props) => {
     username: null,
     avatar_url: null,
     name: null,
+    password: null,
   });
   return (
     <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>

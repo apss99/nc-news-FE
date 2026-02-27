@@ -3,6 +3,7 @@ import { UserContext } from "../../Contexts/User";
 import axios from "axios";
 
 const SignUpPage = () => {
+  const [loggedInUser, setLoggedInUser] = useContext(UserContext);
   const [newUser, setNewUser] = useState({
     username: "",
     password: "",
@@ -21,10 +22,13 @@ const SignUpPage = () => {
       },
     );
     console.dir(response);
+    setLoggedInUser(response.data.user);
+    console.log(response.data.user);
     setNewUser({
       username: "",
       name: "",
       avatar_url: "",
+      password: "",
     });
   }
   return (
@@ -65,4 +69,5 @@ const SignUpPage = () => {
     </form>
   );
 };
+
 export default SignUpPage;
