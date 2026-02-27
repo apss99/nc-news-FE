@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import axios from "axios";
+import { UserContext } from "../../../Contexts/User";
 
 //comment submitted as text can make NewComment just a normal function and that function should change the state of another component called SubmittedCommentMessagejsx
 
 function CreateCommentBox({ article_id }) {
+  const [loggedInUser, setLoggedInUser] = useContext(UserContext);
   const [newComment, setNewComment] = useState("");
   async function handleSubmit(event) {
     event.preventDefault();
@@ -11,7 +13,7 @@ function CreateCommentBox({ article_id }) {
       `https://better-news.onrender.com/api/articles/${article_id}/comments`,
       {
         article_id: article_id,
-        username: "grumpy19",
+        username: loggedInUser.username,
         body: newComment,
       },
     );
