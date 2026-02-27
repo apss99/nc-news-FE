@@ -8,11 +8,18 @@ import CreateCommentBox from "./CreateCommentBox";
 function CommentSection({ comment_count, article_id }) {
   const [showComments, setShowComments] = useState(false);
   const [showCommentBox, setShowCommentBox] = useState(false);
+  const [loginMessage, setLoginMessage] = useState("");
   const handleShowComments = () => {
     setShowComments((open) => !open);
   };
   const handleNewComment = () => {
-    setShowCommentBox((open) => !open);
+    loggedInUser.username === "" ||
+    loggedInUser.username === null ||
+    loggedInUser.username === undefined
+      ? setShowCommentBox(false) &&
+        setLoginMessage("login or sign up to comment")
+      : setShowCommentBox((open) => !open);
+    setLoginMessage("");
   };
   return (
     <>
