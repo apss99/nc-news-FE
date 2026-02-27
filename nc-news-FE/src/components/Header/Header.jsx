@@ -10,7 +10,6 @@ function Header(props) {
       <h1> Better News </h1>
       <h6>Default Password: 'password'</h6>
       <SignUpButton />
-      <LoginButton />
       <Dropdown
         fetchArticlesData={fetchArticlesData}
         setFetchArticlesData={setFetchArticlesData}
