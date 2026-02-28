@@ -15,12 +15,9 @@ function CommentSection({ comment_count, article_id }) {
   const handleShowComments = () => {
     setShowComments((open) => !open);
   };
+  console.log(loggedInUser.username);
   const handleNewComment = () => {
-    if (
-      loggedInUser.username === "" ||
-      loggedInUser.username === null ||
-      loggedInUser.username === undefined
-    ) {
+    if (loggedInUser.username === null) {
       setShowCommentBox(false);
       setLoginMessage("login or sign up to comment");
     } else {

@@ -7,7 +7,7 @@ import { UserContext } from "../../../Contexts/User";
 function CreateCommentBox({ article_id }) {
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
   const [newComment, setNewComment] = useState("");
-  async function handleSubmit(event) {
+  async function handleMakeComment(event) {
     event.preventDefault();
     const response = await axios.post(
       `https://better-news.onrender.com/api/articles/${article_id}/comments`,
@@ -17,12 +17,11 @@ function CreateCommentBox({ article_id }) {
         body: newComment,
       },
     );
-    console.dir(response);
     setNewComment("");
   }
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleMakeComment}>
         <textarea
           placeholder="Inspire us with your words!"
           className="new-comment-textbox"
