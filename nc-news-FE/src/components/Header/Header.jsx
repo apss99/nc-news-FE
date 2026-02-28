@@ -2,7 +2,9 @@ import Dropdown from "./Dropdown";
 import LoginButton from "./LoginButton";
 import SignUpButton from "./SignUpButton";
 
-function Header() {
+function Header(props) {
+  const articleParameters = props.articleParameters;
+  const setArticleParameters = props.setArticleParameters;
   return (
     <nav>
       {" "}
@@ -10,7 +12,10 @@ function Header() {
       <h6>Default Password: 'password'</h6>
       <LoginButton />
       <SignUpButton />
-      <Dropdown />
+      <Dropdown
+        articleParameters={articleParameters}
+        setArticleParameters={setArticleParameters}
+      />
     </nav>
   );
 }

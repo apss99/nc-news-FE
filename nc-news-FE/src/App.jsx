@@ -15,9 +15,15 @@ function App() {
   const [fetchTopicsData, setFetchTopicsData] = useState([]);
   const [fetchUsersData, setFetchUsersData] = useState([]);
   const [singleArticleData, setSingleArticleData] = useState([]);
+  const [articleParameters, setArticleParameters] = useState({});
   return (
     <UserProvider>
-      <Header />
+      <Header
+        articleParameters={articleParameters}
+        setArticleParameters={setArticleParameters}
+        fetchArticlesData={fetchArticlesData}
+        setFetchArticlesData={setFetchArticlesData}
+      />
       <Routes>
         <Route
           path="/articles"
@@ -25,6 +31,8 @@ function App() {
             <ArticlesList
               fetchArticlesData={fetchArticlesData}
               setFetchArticlesData={setFetchArticlesData}
+              articleParameters={articleParameters}
+              setArticleParameters={setArticleParameters}
             />
           }
         />

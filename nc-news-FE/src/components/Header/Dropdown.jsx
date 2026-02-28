@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { Link } from "react-router";
+import ArticlesButton from "./ArticlesButton";
 
-function Dropdown() {
+function Dropdown(props) {
   const [open, setOpen] = useState(false);
+  const articleParameters = props.articleParameters;
+  const setArticleParameters = props.setArticleParameters;
   const handleOpen = () => {
     setOpen(!open);
   };
@@ -21,10 +24,11 @@ function Dropdown() {
               <button className="topics-endpoint-button">Topics</button>
             </Link>
           </li>
-          <li className="menu-option">
-            <Link to="/articles">
-              <button className="articles-endpoint-button">Articles</button>
-            </Link>
+          <li className="menu-option-articles-button">
+            <ArticlesButton
+              articleParameters={articleParameters}
+              setArticleParameters={setArticleParameters}
+            />
           </li>
         </ul>
       ) : null}
