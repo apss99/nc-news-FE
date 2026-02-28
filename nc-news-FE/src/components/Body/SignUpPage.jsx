@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { UserContext } from "../../Contexts/User";
+import { UserContext } from "../../Contexts/UserContext";
 import axios from "axios";
 
 const SignUpPage = () => {

@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import CommentCard from "./CommentCard";
 import ViewComments from "./ViewComments";
 import CreateCommentBox from "./CreateCommentBox";
-import { UserContext } from "../../../Contexts/User";
+import { UserContext } from "../../../Contexts/UserContext";
 import { useContext } from "react";
 
 function CommentSection({ comment_count, article_id }) {

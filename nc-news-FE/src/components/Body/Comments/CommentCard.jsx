@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router";
-import { UserContext } from "../../../Contexts/User";
+import { UserContext } from "../../../Contexts/UserContext";
 import axios from "axios";
 
 function CommentCard({
@@ -32,7 +32,7 @@ function CommentCard({
       <p>{created_at}</p>
       <p>{body}</p>
       <p>{votes}</p>
-      <button onClick={handleDeleteComment}>delete</button>
+      <a onClick={handleDeleteComment}>delete</a>
       <p>{deletionMessage}</p>
     </div>
   );

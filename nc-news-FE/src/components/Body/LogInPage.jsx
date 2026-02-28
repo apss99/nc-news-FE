@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { UserContext } from "../../Contexts/User";
+import { UserContext } from "../../Contexts/UserContext";
 import axios from "axios";
 
 const LogInPage = () => {
@@ -17,7 +17,11 @@ const LogInPage = () => {
         password: loginAttempt.password,
       },
     );
+    if (response.data.account_deleted === true) {
+      throw Error("Account Deleted");
+    }
     setLoggedInUser(response.data);
+    console.log(response.data);
   }
   return (
     <form onSubmit={AttemptLogin}>

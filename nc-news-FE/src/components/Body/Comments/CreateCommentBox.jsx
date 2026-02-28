@@ -1,6 +1,6 @@
 import { useState, useContext } from "react";
 import axios from "axios";
-import { UserContext } from "../../../Contexts/User";
+import { UserContext } from "../../../Contexts/UserContext";
 
 //comment submitted as text can make NewComment just a normal function and that function should change the state of another component called SubmittedCommentMessagejsx
 
