@@ -13,8 +13,8 @@ const LogInPage = () => {
     const response = await axios.post(
       "https://better-news.onrender.com/api/login",
       {
-        username: loginAttempt.username || "",
-        password: loginAttempt.password || "",
+        username: loginAttempt.username,
+        password: loginAttempt.password,
       },
     );
     setLoggedInUser(response.data);
