@@ -1,7 +1,4 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import CommentCard from "./CommentCard";
+import { useState } from "react";
 import ViewComments from "./ViewComments";
 import CreateCommentBox from "./CreateCommentBox";
 import { UserContext } from "../../../Contexts/UserContext";
@@ -10,7 +7,7 @@ import { useContext } from "react";
 function CommentSection({ comment_count, article_id }) {
   const [showComments, setShowComments] = useState(false);
   const [showCommentBox, setShowCommentBox] = useState(false);
-  const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+  const [loggedInUser] = useContext(UserContext);
   const [loginMessage, setLoginMessage] = useState("");
   const handleShowComments = () => {
     setShowComments((open) => !open);

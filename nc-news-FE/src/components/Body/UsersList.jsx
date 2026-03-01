@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import UsersCard from "./UsersCard";
 import axios from "axios";
 

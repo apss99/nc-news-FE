@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import ArticlesCard from "./ArticlesCard";
 import axios from "axios";
 
@@ -6,7 +6,6 @@ function ArticlesList(props) {
   const setArticlesData = props.setFetchArticlesData;
   const articlesData = props.fetchArticlesData;
   const articleParameters = props.articleParameters;
-  const setArticleParameters = props.setArticleParameters;
   useEffect(() => {
     async function fetchArticles() {
       const response = await axios.get(

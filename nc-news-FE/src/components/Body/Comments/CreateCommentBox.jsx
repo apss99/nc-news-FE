@@ -2,10 +2,8 @@ import { useState, useContext } from "react";
 import axios from "axios";
 import { UserContext } from "../../../Contexts/UserContext";
 
-//comment submitted as text can make NewComment just a normal function and that function should change the state of another component called SubmittedCommentMessagejsx
-
 function CreateCommentBox({ article_id }) {
-  const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+  const loggedInUser = useContext(UserContext);
   const [newComment, setNewComment] = useState("");
   async function handleMakeComment(event) {
     event.preventDefault();

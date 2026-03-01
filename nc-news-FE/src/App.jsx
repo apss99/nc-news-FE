@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "./App.css";
 import Header from "./components/Header/Header";
 import { Route, Routes } from "react-router";
 import ArticlesList from "./components/Body/Articles/ArticlesList";
@@ -9,6 +8,7 @@ import SingleArticle from "./components/Body//Articles/SingleArticle";
 import { UserProvider } from "./Contexts/UserContext";
 import SignUpPage from "./components/Body/SignUpPage";
 import LogInPage from "./components/Body/LogInPage";
+import Home from "./components/Body/Home";
 
 function App() {
   const [fetchArticlesData, setFetchArticlesData] = useState([]);
@@ -16,6 +16,7 @@ function App() {
   const [fetchUsersData, setFetchUsersData] = useState([]);
   const [singleArticleData, setSingleArticleData] = useState([]);
   const [articleParameters, setArticleParameters] = useState({});
+  const [isLoading, setIsLoading] = useState(null);
   return (
     <UserProvider>
       <Header
@@ -25,6 +26,7 @@ function App() {
         setFetchArticlesData={setFetchArticlesData}
       />
       <Routes>
+        <Route path="/" element={<Home />} />
         <Route
           path="/articles"
           element={
@@ -71,8 +73,3 @@ function App() {
 }
 
 export default App;
-
-/*<Route
-          path={["/articles", "/topics", "/users"]}
-          element={<Header fetchData={fetchData} setFetchData={setFetchData} />}
-        /*/

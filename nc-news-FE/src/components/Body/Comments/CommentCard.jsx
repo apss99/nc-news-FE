@@ -1,18 +1,10 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router";
 import { UserContext } from "../../../Contexts/UserContext";
 import axios from "axios";
 
-function CommentCard({
-  comment_id,
-  article_title,
-  body,
-  votes,
-  author,
-  created_at,
-}) {
+function CommentCard({ comment_id, body, votes, author, created_at }) {
   const [deletionMessage, setDeletionMessage] = useState("");
-  const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+  const [loggedInUser] = useContext(UserContext);
   async function handleDeleteComment() {
     if (loggedInUser.username === author) {
       const response = await axios.delete(

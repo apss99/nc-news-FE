@@ -3,7 +3,7 @@ import { UserContext } from "../../Contexts/UserContext";
 import axios from "axios";
 
 const LogInPage = () => {
-  const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+  const setLoggedInUser = useContext(UserContext);
   const [loginAttempt, setLoginAttempt] = useState({
     username: "",
     password: "",

@@ -1,5 +1,4 @@
 import { useState } from "react";
-import ArticlesList from "../Body/Articles/ArticlesList";
 import { useNavigate } from "react-router-dom";
 
 function ArticlesButton(props) {
@@ -56,7 +55,7 @@ function ArticlesButton(props) {
               })
             }
           >
-            <option value="all">all</option>
+            <option value="">all</option>
             <option value="coding">coding</option>
             <option value="football">football</option>
             <option value="cooking">cooking</option>
